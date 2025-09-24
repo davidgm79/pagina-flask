@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Proponer Programa de Formación</h1>
+<p class="lead">¿Tienes una idea para un nuevo programa académico? Compártela con nosotros.</p>
+
+<form method="POST">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre Completo</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" required>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="mb-3">
+                <label for="email" class="form-label">Correo Electrónico</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-6">
+            <div class="mb-3">
+                <label for="tipo_programa" class="form-label">Tipo de Programa</label>
+                <select class="form-select" id="tipo_programa" name="tipo_programa" required>
+                    <option value="">Seleccione...</option>
+                    <option value="Técnico">Técnico</option>
+                    <option value="Profesional">Profesional</option>
+                    <option value="Especialización">Especialización</option>
+                    <option value="Maestría">Maestría</option>
+                    <option value="Doctorado">Doctorado</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="mb-3">
+                <label for="area_conocimiento" class="form-label">Área de Conocimiento</label>
+                <select class="form-select" id="area_conocimiento" name="area_conocimiento" required>
+                    <option value="">Seleccione...</option>
+                    <option value="Ingenierías">Ingenierías</option>
+                    <option value="Ciencias de la Salud">Ciencias de la Salud</option>
+                    <option value="Ciencias Sociales">Ciencias Sociales</option>
+                    <option value="Ciencias Económicas">Ciencias Económicas</option>
+                    <option value="Artes y Humanidades">Artes y Humanidades</option>
+                    <option value="Ciencias Básicas">Ciencias Básicas</option>
+                    <option value="Educación">Educación</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    
+    <div class="mb-3">
+        <label for="nombre_programa" class="form-label">Nombre del Programa Propuesto</label>
+        <input type="text" class="form-control" id="nombre_programa" name="nombre_programa" required>
+    </div>
+    
+    <div class="mb-3">
+        <label for="descripcion" class="form-label">Descripción del Programa</label>
+        <textarea class="form-control" id="descripcion" name="descripcion" rows="4" required></textarea>
+    </div>
+    
+    <div class="mb-3">
+        <label for="justificacion" class="form-label">Justificación (por qué considera que este programa es necesario)</label>
+        <textarea class="form-control" id="justificacion" name="justificacion" rows="4" required></textarea>
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Enviar Propuesta</button>
+</form>
+{% endblock %}

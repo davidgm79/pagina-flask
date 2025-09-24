@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Formulario de Inscripción</h1>
+<p class="lead">Completa el siguiente formulario para iniciar tu proceso de admisión.</p>
+
+<form method="POST">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="mb-3">
+                <label for="nombres" class="form-label">Nombres</label>
+                <input type="text" class="form-control" id="nombres" name="nombres" required>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="mb-3">
+                <label for="apellidos" class="form-label">Apellidos</label>
+                <input type="text" class="form-control" id="apellidos" name="apellidos" required>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-4">
+            <div class="mb-3">
+                <label for="tipo_documento" class="form-label">Tipo de Documento</label>
+                <select class="form-select" id="tipo_documento" name="tipo_documento" required>
+                    <option value="">Seleccione...</option>
+                    <option value="Cédula de Ciudadanía">Cédula de Ciudadanía</option>
+                    <option value="Tarjeta de Identidad">Tarjeta de Identidad</option>
+                    <option value="Cédula de Extranjería">Cédula de Extranjería</option>
+                    <option value="Pasaporte">Pasaporte</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="mb-3">
+                <label for="numero_documento" class="form-label">Número de Documento</label>
+                <input type="text" class="form-control" id="numero_documento" name="numero_documento" required>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="mb-3">
+                <label for="fecha_nacimiento" class="form-label">Fecha de Nacimiento</label>
+                <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento" required>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-6">
+            <div class="mb-3">
+                <label for="email" class="form-label">Correo Electrónico</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="mb-3">
+                <label for="telefono" class="form-label">Teléfono</label>
+                <input type="tel" class="form-control" id="telefono" name="telefono" required>
+            </div>
+        </div>
+    </div>
+    
+    <div class="mb-3">
+        <label for="programa_interes" class="form-label">Programa de Interés</label>
+        <select class="form-select" id="programa_interes" name="programa_interes" required>
+            <option value="">Seleccione...</option>
+            <option value="Ingeniería de Sistemas">Ingeniería de Sistemas</option>
+            <option value="Administración de Empresas">Administración de Empresas</option>
+            <option value="Derecho">Derecho</option>
+            <option value="Psicología">Psicología</option>
+            <option value="Contaduría Pública">Contaduría Pública</option>
+            <option value="Medicina">Medicina</option>
+            <option value="Enfermería">Enfermería</option>
+            <option value="Arquitectura">Arquitectura</option>
+        </select>
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Enviar Inscripción</button>
+</form>
+{% endblock %}

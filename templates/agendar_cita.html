@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Agendar Cita</h1>
+<p class="lead">Solicita una cita con las diferentes áreas de la universidad.</p>
+
+<form method="POST">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre Completo</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" required>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="mb-3">
+                <label for="email" class="form-label">Correo Electrónico</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-6">
+            <div class="mb-3">
+                <label for="telefono" class="form-label">Teléfono</label>
+                <input type="tel" class="form-control" id="telefono" name="telefono" required>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="mb-3">
+                <label for="area" class="form-label">Área a Consultar</label>
+                <select class="form-select" id="area" name="area" required>
+                    <option value="">Seleccione...</option>
+                    <option value="Admisiones">Admisiones</option>
+                    <option value="Registro Académico">Registro Académico</option>
+                    <option value="Financiera">Financiera</option>
+                    <option value="Bienestar Universitario">Bienestar Universitario</option>
+                    <option value="Biblioteca">Biblioteca</option>
+                    <option value="Decanatura">Decanatura</option>
+                    <option value="Coordinación Académica">Coordinación Académica</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-6">
+            <div class="mb-3">
+                <label for="fecha_cita" class="form-label">Fecha Preferida para la Cita</label>
+                <input type="date" class="form-control" id="fecha_cita" name="fecha_cita" required>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="mb-3">
+                <label for="hora_cita" class="form-label">Hora Preferida para la Cita</label>
+                <select class="form-select" id="hora_cita" name="hora_cita" required>
+                    <option value="">Seleccione...</option>
+                    <option value="08:00">08:00 AM</option>
+                    <option value="09:00">09:00 AM</option>
+                    <option value="10:00">10:00 AM</option>
+                    <option value="11:00">11:00 AM</option>
+                    <option value="14:00">02:00 PM</option>
+                    <option value="15:00">03:00 PM</option>
+                    <option value="16:00">04:00 PM</option>
+                    <option value="17:00">05:00 PM</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    
+    <div class="mb-3">
+        <label for="motivo" class="form-label">Motivo de la Cita</label>
+        <textarea class="form-control" id="motivo" name="motivo" rows="4" required></textarea>
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Solicitar Cita</button>
+</form>
+{% endblock %}

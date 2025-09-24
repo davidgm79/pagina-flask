@@ -1,0 +1,157 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Panel de Administración</h1>
+<p class="lead">Visualización de datos registrados en el sistema.</p>
+
+<ul class="nav nav-tabs" id="adminTabs" role="tablist">
+    <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="inscripciones-tab" data-bs-toggle="tab" data-bs-target="#inscripciones" type="button" role="tab">Inscripciones</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="contactos-tab" data-bs-toggle="tab" data-bs-target="#contactos" type="button" role="tab">Contactos</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="citas-tab" data-bs-toggle="tab" data-bs-target="#citas" type="button" role="tab">Citas</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="programas-tab" data-bs-toggle="tab" data-bs-target="#programas" type="button" role="tab">Programas Propuestos</button>
+    </li>
+</ul>
+
+<div class="tab-content mt-3" id="adminTabsContent">
+    <!-- Pestaña de Inscripciones -->
+    <div class="tab-pane fade show active" id="inscripciones" role="tabpanel">
+        <h3>Inscripciones Registradas</h3>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombres</th>
+                        <th>Apellidos</th>
+                        <th>Documento</th>
+                        <th>Email</th>
+                        <th>Programa de Interés</th>
+                        <th>Fecha de Inscripción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for inscripcion in inscripciones %}
+                    <tr>
+                        <td>{{ inscripcion.id }}</td>
+                        <td>{{ inscripcion.nombres }}</td>
+                        <td>{{ inscripcion.apellidos }}</td>
+                        <td>{{ inscripcion.tipo_documento }}: {{ inscripcion.numero_documento }}</td>
+                        <td>{{ inscripcion.email }}</td>
+                        <td>{{ inscripcion.programa_interes }}</td>
+                        <td>{{ inscripcion.fecha_inscripcion }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <!-- Pestaña de Contactos -->
+    <div class="tab-pane fade" id="contactos" role="tabpanel">
+        <h3>Mensajes de Contacto</h3>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Email</th>
+                        <th>Asunto</th>
+                        <th>Mensaje</th>
+                        <th>Fecha de Contacto</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for contacto in contactos %}
+                    <tr>
+                        <td>{{ contacto.id }}</td>
+                        <td>{{ contacto.nombre }}</td>
+                        <td>{{ contacto.email }}</td>
+                        <td>{{ contacto.asunto }}</td>
+                        <td>{{ contacto.mensaje[:50] }}...</td>
+                        <td>{{ contacto.fecha_contacto }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <!-- Pestaña de Citas -->
+    <div class="tab-pane fade" id="citas" role="tabpanel">
+        <h3>Citas Agendadas</h3>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Email</th>
+                        <th>Área</th>
+                        <th>Fecha Cita</th>
+                        <th>Hora Cita</th>
+                        <th>Motivo</th>
+                        <th>Fecha Solicitud</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for cita in citas %}
+                    <tr>
+                        <td>{{ cita.id }}</td>
+                        <td>{{ cita.nombre }}</td>
+                        <td>{{ cita.email }}</td>
+                        <td>{{ cita.area }}</td>
+                        <td>{{ cita.fecha_cita }}</td>
+                        <td>{{ cita.hora_cita }}</td>
+                        <td>{{ cita.motivo[:50] }}...</td>
+                        <td>{{ cita.fecha_solicitud }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <!-- Pestaña de Programas Propuestos -->
+    <div class="tab-pane fade" id="programas" role="tabpanel">
+        <h3>Programas Académicos Propuestos</h3>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Email</th>
+                        <th>Tipo</th>
+                        <th>Área</th>
+                        <th>Nombre Programa</th>
+                        <th>Descripción</th>
+                        <th>Fecha Propuesta</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for programa in programas %}
+                    <tr>
+                        <td>{{ programa.id }}</td>
+                        <td>{{ programa.nombre }}</td>
+                        <td>{{ programa.email }}</td>
+                        <td>{{ programa.tipo_programa }}</td>
+                        <td>{{ programa.area_conocimiento }}</td>
+                        <td>{{ programa.nombre_programa }}</td>
+                        <td>{{ programa.descripcion[:50] }}...</td>
+                        <td>{{ programa.fecha_propuesta }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
